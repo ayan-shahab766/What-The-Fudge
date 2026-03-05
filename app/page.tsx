@@ -1,9 +1,9 @@
 import prisma from "@/lib/prisma";
 import Link from "next/link";
-import { Dessert } from "@prisma/client";
 
 export default async function Home() {
-  const desserts: Dessert[] = await prisma.dessert.findMany();
+  // Prisma already infers the type of desserts
+  const desserts = await prisma.dessert.findMany();
 
   return (
     <main className="p-10">
@@ -19,7 +19,7 @@ export default async function Home() {
       </div>
 
       <div className="grid grid-cols-3 gap-5">
-        {desserts.map((dessert) => (
+        {desserts.map((dessert: typeof desserts[number]) => (
           <div key={dessert.id} className="border p-5 rounded shadow">
             <img
               src={dessert.imageUrl}
