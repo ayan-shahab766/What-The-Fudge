@@ -1,4 +1,4 @@
-import { addDessert } from "../actions/addDessert";
+import { addDessert } from "@/app/actions/addDessert";
 
 export default function AddDessert() {
   return (
